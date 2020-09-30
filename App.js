@@ -13,7 +13,7 @@ import ProductDetails from "./components/productDetails"
 function HomeScreen({ navigation }) {
   return (
     <View style={style.container}>
-      <StatusBar barStyle="default" backgroundColor="red" />
+      <StatusBar barStyle="default" backgroundColor="brown" />
       <Image
         style={{ height: hp("20%"), width: wp("40%") }}
         resizeMode="cover"
