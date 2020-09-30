@@ -10,8 +10,12 @@ export default function ProductDetails({ navigation ,route }) {
     const windowHeight = Dimensions.get('window').height;
     const headerHeight = useHeaderHeight();
     
+    let openURL = e => {
 
-    console.log(route.params.data)
+        Linking.openURL(e).catch(err =>
+            Alert.alert("Invalid QRCode", e))
+    } 
+
     return (
         
       
@@ -20,7 +24,7 @@ export default function ProductDetails({ navigation ,route }) {
         <View style={style.field}><Text style={style.text} > Product ID</Text><Text style={style.text}>{route.params.data.bounds.width} </Text></View>
     <View style={style.field}><Text style={style.text} > Product Price</Text><Text style={style.text}> {route.params.data.bounds.height}</Text></View>
         <View style={style.field}><Text style={style.text} > Product Amount</Text><Text style={style.text}> {route.params.data.target}</Text></View>
-        <View style={style.btnContainer}><View><Button large success style={style.Btn} onPress={() => navigation.navigate('ChangeStatus' , {url:route.params.data.data})} ><Text> Change Status </Text></Button></View></View>
+        <View style={style.btnContainer}><View><Button large success style={style.Btn} onPress={() => openURL(route.params.data.data)} ><Text> Change Status </Text></Button></View></View>
         </View>
        
     )

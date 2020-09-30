@@ -8,7 +8,6 @@ import { Container, Header, Content, Button, Text ,Icon} from 'native-base';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import QRScan from "./components/QRScan"
-import ChangeStatus from "./components/changeStatus"
 import ProductDetails from "./components/productDetails"
 
 function HomeScreen({ navigation }) {
@@ -50,12 +49,7 @@ function App() {
               backgroundColor: 'white'
             }
           }} />
-          <Stack.Screen name="ChangeStatus" component={ChangeStatus}
-          options={{
-            title: 'Scan QRCode', headerTitleAlign: 'center', headerStyle: {
-              backgroundColor: 'white'
-            }
-          }} />
+          
       </Stack.Navigator>
     </NavigationContainer>
   );
