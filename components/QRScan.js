@@ -6,7 +6,7 @@ import { RNCamera } from 'react-native-camera';
 
 import { useHeaderHeight } from '@react-navigation/stack';
 
-export default function QRScan() {
+export default function QRScan({ navigation }) {
     const windowWidth = Dimensions.get('window').width;
     const windowHeight = Dimensions.get('window').height;
     const headerHeight = useHeaderHeight();
@@ -15,14 +15,10 @@ export default function QRScan() {
     let ifScanded = e => {
         console.log(e)
 
-        // setUrl(e.data)
+        navigation.navigate('ProductDetail' , {data:e})
 
-        // setOpen(false)
-
-        // webViews()
-        
-        Linking.openURL(e.data).catch(err =>
-          Alert.alert("Invalid QRCode", e.data))
+        // Linking.openURL(e.data).catch(err =>
+        //   Alert.alert("Invalid QRCode", e.data))
     }
 
     return (
@@ -31,7 +27,8 @@ export default function QRScan() {
             containerStyle={{ backgroundColor: "#FFF", height: 100 }}
             flashMode={RNCamera.Constants.FlashMode.auto}  // .....Torch
             onRead={ifScanded}
-            reactivate={true}
+            // reactivate={true}
+
             permissionDialogMessage="Need Permission To Access Camera"
             reactivateTimeout={10}
             showMarker={true}
